@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <section id="jv" class="hero gladiator">
+        <div class="container-fluid">
+            <div id="jv-heading" class="row">
+                <div class="col-sm-7 col-md-6">
+                    <div class="heading-text-jv">
+                        <h1>New Jeep Gladiator</h1>
+                        <h2>Save up to $6,139 off MSRP*</h2>
+                        <h3><span>The new Jeep Gladiator offers a modern twist on a
+                                classic name.</span></h3>
+                    </div>
+                    <div class="hero-jv-cta">
+                        <div class="row">
+                            <div class="btn-group btn-group-justified" role="group">
+                                <div class="col-sm-6"><a id="inventory" class="btn button-jv" role="button"
+                                        href="javascript: scrollToForm();">View Inventory</a></div>
+                                <div class="col-sm-6"><a id="learn" class="btn button-jv" role="button" href="#">Browse
+                                        Specials</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="jv" class="jv-below" style="position: sticky; top: 111px; z-index: 900;">
+        <div class="container-fluid jv-bar">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="dropdown"><button id="jDd" class="button-jv" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span>Choose Section</span><span
+                                class="caret"></span></button>
+                        <ul class="dropdown-menu" aria-labelledby="jDd">
+                            <li><a href="#">Larry</a></li>
+                            <li><a href="#">Was</a></li>
+                            <li><a href="#">Here..0x00</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="jv-button-wrap"><a id="schedule" class="btn button-jv space" role="button"
+                            data-toggle="modal" data-target="#DIModal" data-modal-content="#testdriveform"
+                            data-modal-title="Schedule Test Drive Now">Schedule a Test Drive</a>
+                        <a id="viewinv" class="btn button-jv" role="button" href="javascript: scrollToForm();">View
+                            Inventory</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="jv" class="special-banner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col web-banner text-center"><img
+                        src="https://di-uploads-pod28.dealerinspire.com/reedchryslerdodgejeepramoverlandpark/uploads/2023/05/thumbnail_Jeep-Gladiator-Banner.png" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="hidden-all" id="testdriveform">
+        [gravityform id="22" title="false" description="false" ajax="false"]
+    </div>
+    [inventory_lightning type="New" model="Gladiator" sort-index="low_to_high" /]
+    <script>
+        function scrollToForm() {
+            document.querySelector('#lvrp-container').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

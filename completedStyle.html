@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --specials-title: #333;
+      --specials-sub: #555;
+      --specials-bborder: 1px solid #ab1d1d;
+      --specials-btext: #ab1d1d;
+      --specials-bbg: #fff;
+      --rag-specialspage-bg: #f0f0f0;
+      --rag-specialtext-bg: #fff;
+      --rag-overlay-top: url("https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/937703_922138/JULY%202023%20WEB-top.png");
+      --rag-overlay-bottom: url("https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/937703_922138/JULY%202023%20WEB-bottom_1.png");
+      --rag-overlay: url("https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/937703_922138/JULY%202023%20WEB.png");
+    }
+
+    /* Full Overlay 
+    .rag-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; 
+  background-image: var(--rag-overlay);
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  z-index: 2; 
+  opacity: 0.75;
+}*/
+
+    .rag-overlay-top,
+    .rag-overlay-bottom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background-size: 100% auto;
+      /* Adjusted from 'cover' to '100% auto' */
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+      opacity: 0.75;
+    }
+
+    .rag-overlay-top {
+      background-image: var(--rag-overlay-top);
+      top: 0;
+      height: calc(6vw);
+      /* Adjusted from fixed '39px' to responsive '5vh' */
+    }
+
+    .rag-overlay-bottom {
+      background-image: var(--rag-overlay-bottom);
+      bottom: 0;
+      height: calc(6vw);
+      /* Adjusted from fixed '39px' to responsive '5vh' */
+    }
+
+
+    .img-container-main,
+    .img-container-sub {
+      padding: 0;
+    }
+
+    .img-container-main img,
+    .img-container-sub img {
+      width: 100%;
+      height: auto;
+    }
+
+    .img-container-sub img {
+      max-height: 250px;
+    }
+
+    .img-container-sub.sub-L img {
+      padding: 10px 5px 0px 0px;
+    }
+
+    .img-container-sub.sub-R img {
+      padding: 10px 0px 0px 5px;
+    }
+
+    .rag-container-L .text-container-rag {
+      margin-left: 60px;
+    }
+
+    .rag-container-R .text-container-rag {
+      margin-right: 60px;
+    }
+
+    .text-container-rag {
+      text-align: center;
+      width: 100%;
+      padding: 125px 50px;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      align-self: center;
+      align-items: center;
+      background-color: var(--rag-specialtext-bg);
+      box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.3);
+    }
+
+    .alignv {
+      align-items: center;
+      display: flex;
+    }
+
+    .rag-special {
+      margin: 0 auto;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .rag-img-model {
+      font-size: calc(30px + 1vw);
+      color: white;
+      text-shadow: 2px 2px 4px rgb(0, 0, 0);
+      font-weight: 600;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-transform: uppercase;
+      z-index: 10;
+      -webkit-text-stroke: 2px 2px 4px rgba(0, 102, 255, 1);
+      letter-spacing: 1px;
+      font-style: normal;
+      line-height: 50px;
+    }
+
+    .rag-img-offer {
+      font-size: calc(30px + 1vw);
+      color: white;
+      text-shadow: 2px 2px 4px rgb(0, 0, 0);
+      font-weight: 600;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      text-transform: uppercase;
+      z-index: 10;
+      -webkit-text-stroke: 2px 2px 4px rgba(0, 102, 255, 1);
+      letter-spacing: 1px;
+      font-style: italic;
+      line-height: 50px;
+    }
+
+
+    .text-container-rag h1 {
+      font-size: calc(20px + 1vw);
+      color: var(--specials-title);
+      font-weight: 400;
+    }
+
+    .text-container-rag p {
+      font-size: calc(10px + 1vw);
+      color: var(--specials-sub);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    div.rag-button-side {
+      margin-top: 25px;
+    }
+
+    a.rag-special {
+      border: 1px solid;
+      text-decoration: none;
+      font-size: 20px;
+      color: var(--specials-btext);
+      padding: 5px 45px;
+      margin-top: 15px;
+      text-shadow: 2px 2px 4px rgba(116, 116, 116, 0.3);
+      font-weight: normal;
+      border-radius: 7.5px;
+      box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.6);
+      transition: all 0.3s ease;
+      background-color: var(--specials-bbg);
+    }
+
+    a.rag-special:hover,
+    a.rag-special:active {
+      box-shadow: 2px 2px 4px rgba(100, 100, 100, 0.938);
+      color: var(--specials-bbg);
+      background-color: var(--specials-btext);
+      border-color: var(--specials-btext);
+    }
+
+    div.rag-row-space {
+      padding: 20px;
+    }
+
+
+    .rag-row-space-m {
+      margin-top: 10px;
+    }
+
+    .rag-container-L {
+      padding: 0;
+      margin: 0;
+    }
+
+    .rag-container-L,
+    .rag-container-R {
+      background-color: var(--rag-specialspage-bg);
+    }
+
+    .rag-image-row-l,
+    .rag-image-row-r {
+      padding: 10px;
+      margin: 0 auto;
+    }
+
+    .rag-container-L .rag-text-con {
+      padding: 0;
+      margin: 0;
+      justify-content: end;
+    }
+
+    .rag-container-R .rag-text-con {
+      padding: 0;
+      margin: 0;
+      justify-content: start;
+    }
+
+    @media (max-width: 991px) and (min-width: 769px) {
+
+      .rag-overlay-top {
+        top: 0;
+        margin-top: 8px;
+        height: calc(11vw);
+        /* Adjusted from fixed '39px' to responsive '5vh' */
+      }
+
+      .rag-overlay-bottom {
+        bottom: 0;
+        margin-bottom: 8px;
+        height: calc(11vw);
+        /* Adjusted from fixed '39px' to responsive '5vh' */
+      }
+
+      .rag-container-L .rag-text-con,
+      .rag-container-R .rag-text-con {
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .container-fluid {
+        padding: 0;
+      }
+
+      .img-container-main,
+      .img-container-sub {
+        width: 100%;
+      }
+
+      .rag-image-row-l,
+      .rag-image-row-r {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .rag-images {
+        flex-wrap: wrap;
+        order: 0;
+      }
+
+      .rag-text-con {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        order: 1;
+      }
+
+      .img-container-sub.sub-L img {
+        padding: 0;
+      }
+
+      .img-container-sub.sub-R img,
+      .img-container-sub.sub-L img,
+      .img-container-main img {
+        padding: 10px 0px;
+      }
+
+      .rag-img-model,
+      .rag-img-offer {
+        font-size: calc(20px + 1.5vw);
+      }
+
+      .rag-img-model {
+        top: 5px;
+        left: 10px;
+      }
+
+      .rag-img-offer {
+        bottom: 5px;
+        left: 10px;
+      }
+
+      .rag-text-con {
+        width: 100%;
+      }
+
+      .text-container-rag {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+        align-self: center;
+        align-items: center;
+        background-color: var(--rag-specialtext-bg);
+        box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.3);
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) and (min-width: 501px) {
+      .rag-overlay-top {
+        top: 0;
+        margin-top: 8px;
+        height: calc(11vw);
+        /* Adjusted from fixed '39px' to responsive '5vh' */
+      }
+
+      .rag-overlay-bottom {
+        bottom: 0;
+        margin-bottom: 8px;
+        height: calc(11vw);
+        /* Adjusted from fixed '39px' to responsive '5vh' */
+      }
+
+      .rag-container-L .rag-text-con,
+      .rag-container-R .rag-text-con {
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .container-fluid {
+        padding: 0;
+      }
+
+      .img-container-main,
+      .img-container-sub {
+        width: 100%;
+      }
+
+      .rag-image-row-l,
+      .rag-image-row-r {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .rag-images {
+        flex-wrap: wrap;
+        order: 0;
+      }
+
+      .rag-text-con {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        order: 1;
+      }
+
+      .img-container-sub.sub-L img {
+        padding: 0;
+      }
+
+      .img-container-sub.sub-R img,
+      .img-container-sub.sub-L img,
+      .img-container-main img {
+        padding: 10px 0px;
+      }
+
+      .rag-img-model,
+      .rag-img-offer {
+        font-size: calc(20px + 1.5vw);
+      }
+
+      .rag-img-model {
+        top: 5px;
+        left: 10px;
+      }
+
+      .rag-img-offer {
+        bottom: 5px;
+        left: 10px;
+      }
+
+      .rag-text-con {
+        width: 100%;
+      }
+
+      .text-container-rag {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+        align-self: center;
+        align-items: center;
+        background-color: var(--rag-specialtext-bg);
+        box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.3);
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .rag-overlay-top {
+        top: 0;
+        margin-top: 8px;
+        height: calc(11vw);
+      }
+
+      .rag-overlay-bottom {
+        background-image: var(--rag-overlay-bottom);
+        bottom: 0;
+        margin-bottom: 8px;
+        height: calc(11vw);
+      }
+
+
+      .rag-container-L .rag-text-con,
+      .rag-container-R .rag-text-con {
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .container-fluid {
+        padding: 0;
+      }
+
+      .img-container-main,
+      .img-container-sub {
+        width: 100%;
+      }
+
+      .rag-image-row-l,
+      .rag-image-row-r {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .rag-images {
+        flex-wrap: wrap;
+        order: 0;
+      }
+
+      .rag-text-con {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        order: 1;
+      }
+
+      .img-container-sub.sub-L img {
+        padding: 0;
+      }
+
+      .img-container-sub.sub-R img,
+      .img-container-sub.sub-L img,
+      .img-container-main img {
+        padding: 10px 0px;
+      }
+
+      .rag-img-model,
+      .rag-img-offer {
+        font-size: calc(10px + 2vw);
+        line-height: 20px;
+        max-width: 75%;
+        text-align: start !important;
+      }
+
+      .rag-img-model {
+        top: 15px;
+        left: 10px;
+      }
+
+      .rag-img-offer {
+        bottom: 15px;
+        left: 10px;
+      }
+
+      .text-container-rag {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+        align-self: center;
+        align-items: center;
+
+        width: 100%;
+      }
+
+      a.rag-special {
+        border: 1px solid;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--specials-btext);
+        width: 50%;
+        margin-top: 15px;
+        text-shadow: 2px 2px 4px rgba(116, 116, 116, 0.3);
+        font-weight: normal;
+        border-radius: 7.5px;
+        box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.6);
+        transition: all 0.3s ease;
+        background-color: var(--specials-bbg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="rag-container-L">
+    <div class="container-fluid rag-special">
+      <!-- Images on Left -->
+
+
+      <div class="row justify-content-center alignv rag-image-row-l text-center">
+        <div class="rag-row-space-m visible-xs"></div>
+        <div class="col-md-7 rag-images">
+          <!-- Main Image -->
+          <div class="row">
+            <div class="col-md-12 img-container-main" style="position: relative;">
+              <img
+                src="https://www.ramtrucks.com/content/dam/fca-brands/na/ramtrucks/en_us/2023/trx/gallery/desktop/my23-ram-trx-02-gallery-01.jpg.image.1440.jpg"
+                alt="Image 1">
+              <div class="rag-overlay-top"></div>
+              <div class="rag-img-offer text-start">up to $6,950 OFF MSRP!</div>
+              <div class="rag-overlay-bottom"></div>
+              <div class="rag-img-model">New 2023 RAM 1500 TRX</div>
+            </div>
+          </div>
+          <!-- Sub Images -->
+          <div class="row hidden-xs hidden-sm">
+            <div class="col-xs-6 img-container-sub sub-L">
+              <img
+                src="https://www.ramtrucks.com/content/dam/fca-brands/na/ramtrucks/en_us/2023/trx/gallery/desktop/my23-ram-trx-02-gallery-20.jpg.image.1440.jpg"
+                alt="Image 2">
+            </div>
+            <div class="col-xs-6 img-container-sub sub-R">
+              <img
+                src="https://www.ramtrucks.com/content/dam/fca-brands/na/ramtrucks/en_us/2023/trx/gallery/desktop/my23-ram-trx-02-gallery-22.jpg.image.1440.jpg"
+                alt="Image 3">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 alignv rag-text-con text-center">
+          <div class="text-container-rag">
+            <h1>New 2023 RAM 1500 TRX</h1>
+            <p>up to $6,950 OFF MSRP!</p>
+            <div class="rag-button-side">
+              <a href="#" type="button" class="rag-special">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Spacer -->
+    <div class="rag-row-space"></div>
+  </div>
+
+  <!-- Images on Right -->
+
+  <div class="rag-container-R">
+    <div class="container-fluid rag-special">
+      <div class="row justify-content-center text-center alignv rag-image-row-r">
+        <div class="col-md-5 alignv rag-text-con">
+          <div class="text-container-rag">
+            <h1>New Jeep Grand Cherokee</h1>
+            <p>up to 20% OFF MSRP!</p>
+            <div class="rag-button-side">
+              <a href="#" type="button" class="rag-special">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 rag-images">
+          <!-- Main Image -->
+          <div class="row">
+            <div class="col-md-12 img-container-main" style="position: relative;">
+              <img
+                src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-01-Exterior-Desktop.jpg.image.1440.jpg"
+                alt="Image 1">
+              <div class="rag-overlay-top"></div>
+              <div class="rag-overlay-bottom"></div>
+              <div class="rag-img-model">New 2023 Grand Cherokee</div>
+              <div class="rag-img-offer">up to 20% OFF MSRP!</div>
+            </div>
+          </div>
+          <!-- Sub Images -->
+          <div class="row hidden-xs hidden-sm">
+            <div class="col-xs-6 img-container-sub sub-L">
+              <img
+                src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-01-Interior-Desktop.jpg.image.1440.jpg"
+                alt="Image 2">
+            </div>
+            <div class="col-xs-6 img-container-sub sub-R">
+              <img
+                src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-02-Interior-Desktop.jpg.image.1440.jpg"
+                alt="Image 3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Spacer -->
+    <div class="rag-row-space"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <section id="rag" class="rag-specials">
+        <div class="container-fluid">
+          <div id="rag-offers-container"></div>
+        </div>
+      </section>
+      
+      
+<style>
+        #rag.rag-specials {
+          max-width: 1440px;
+          margin: 0 auto;
+        }
+        #rag .rag-offer {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+        #rag .rag-offer-image {
+          position: relative;
+          width: 300px;
+          height: 200px;
+        }
+        #rag .rag-offer-image img {
+          width: 100%;
+          height: 100%;
+        }
+        #rag .rag-offer-image-overlay {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: white;
+          font-size: 44px;
+          font-weight: bold;
+          text-align: right;
+        }
+        #rag .rag-offer-image-text {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: white;
+          font-size: 44px;
+          font-weight: bold;
+        }
+        #rag .rag-offer-text {
+          flex: 1;
+          margin-left: 20px;
+        }
+        #rag .rag-offer-text h1 {
+          font-size: 44px;
+        }
+        #rag .rag-offer-text p {
+          font-size: 44px;
+        }
+        #rag .rag-offer-text a {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          text-decoration: none;
+        }
+        #rag .rag-offer-text a:hover {
+          background-color: #0056b3;
+        }
+        /* Added CSS */
+        #rag .rag-offer-image img.rag-active-img {
+          width: 100%;
+        }
+        #rag .rag-offer-image-overlay.rag-active-overlay {
+          /* YOUR STYLES HERE */
+        }
+        #rag .rag-offer-image-text.rag-img-textM {
+          /* YOUR STYLES HERE */
+        }
+        #rag .rag-offer-image-text {
+
+        }
+</style>
+
+<script>
+function fetchOffers() {
+  const targetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjcfknXWqSF0jAiiOgTe7GW_uoGo74U7mpx_YIiGxMU7lPkCC6hTw_GaXKbOVaiJhSIkEuPJA-i0Lo/pub?gid=0&single=true&output=csv';
+  
+  fetch(targetUrl)
+    .then(response => response.text())
+    .then(csvData => {
+      const offers = csvData.split('\r\n').slice(2); // Remove the header row and empty row
+      const offersContainer = document.getElementById('rag-offers-container');
+      
+      offers.forEach(offer => {
+        const offerData = offer.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        
+        // Skip offers without "Contains Offer" = TRUE
+        if (offerData.length < 6 || offerData[3].toLowerCase() !== 'true') return;
+        
+        const offerRow = document.createElement('div');
+        offerRow.className = 'row';
+        
+        const offerHtml = document.createElement('div');
+        offerHtml.className = 'rag-offer col-sm-6';
+        offerHtml.innerHTML = `
+          <div class="rag-offer-image">
+            <img src="${offerData[4].replace(/"/g, '')}" alt="${offerData[0].replace(/"/g, '')}" class="rag-active-img">
+            <div class="rag-offer-image-text rag-img-textM">${offerData[0].replace(/"/g, '')}</div>
+            <div class="rag-offer-image-overlay rag-active-overlay">${offerData[1].replace(/"/g, '')}</div>
+          </div>
+          <div class="rag-offer-text">
+            <h1 class="rag-model-text">${offerData[0].replace(/"/g, '')}</h1>
+            <p class="rag-offer-text">${offerData[1].replace(/"/g, '')}</p>
+            <a href="${offerData[6].replace(/"/g, '')}" class="btn rag-button-jv">Shop Now</a>
+          </div>
+        `;
+        offerRow.appendChild(offerHtml);
+        offersContainer.appendChild(offerRow);
+      });
+    })
+    .catch(error => console.error('Error:', error)); // Log any errors that occur during the fetch operation
+}
+
+fetchOffers();
+</script>
+      
+      
+      
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
