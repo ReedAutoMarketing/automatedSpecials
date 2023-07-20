@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./dev.css">
+  <style>
+    html {
+      font-size: 16px;
+    }
+    #rag-auto button {
+      background-color: #043F77;
+    }
+  </style>
 </head>
-<body class="font-sans bg-white">
-  <div class="container mx-auto px-4">
+
+<body class="font-sans" id="rag-auto">
+  <div class="container mx-auto p-10 bg-gray-100">
     <!-- Row 1 -->
-    <div class="flex flex-col md:flex-row-reverse mb-8 bg-gray-900 p-2 rounded">
-      <div class="w-full md:w-1/2 relative mb-4 md:mb-0">
-        <img src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-01-Exterior-Desktop.jpg.image.1440.jpg" alt="Image of Vehicle for Offer" class="w-full">
-        <div class="text-white text-lg font-semibold absolute bottom-2 left-2">New 2023 Grand Cherokee</div>
+    <div class="flex flex-col md:flex-row-reverse mb-8 bg-white p-5 rounded-lg">
+      <div class="w-full md:w-2/3 relative md:mb-0">
+        <img
+          src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-01-Exterior-Desktop.jpg.image.1440.jpg"
+          alt="Image of Vehicle for Offer" class="w-full rounded-lg">
+        <div class="text-white text-lg font-semibold absolute bottom-2 left-2">New 2023 Wagoneer</div>
       </div>
-      <div class="w-full md:w-1/2 flex flex-col justify-center items-start p-8 rounded">
-        <div class="bg-white p-6 rounded shadow">
+      <div class="w-full md:w-1/3 flex flex-col justify-center items-center">
+        <div class="bg-gray-100 bg-opacity-50 p-12 shadow-lg rounded-lg">
           <div class="text-gray-900 text-lg">Get up to</div>
-          <div class="text-red-900 text-4xl font-bold">20% OFF MSRP</div>
-          <div class="text-gray-900 text-lg">on New 2023 Jeep Grand Cherokee Models</div>
-          <div class="flex justify-between items-start mt-4">
-            <button class="bg-blue-500 text-white py-2 px-4 rounded">Shop Now</button>
-            <button class="bg-blue-500 text-white py-2 px-4 rounded">Claim Offer</button>
+          <div class="text-red-900 text-4xl font-bold">$9,000 OFF MSRP</div>
+          <div class="text-gray-900 text-lg">on New 2023 Wagoneer Models</div>
+          <div class="flex flex-col justify-between">
+            <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Shop Now</button>
+            <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Claim Offer</button>
           </div>
         </div>
       </div>
     </div>
     <!-- Row 2 -->
-    <div class="flex flex-col md:flex-row bg-gray-900 p-2 rounded">
-      <div class="w-full md:w-1/2 relative mb-4 md:mb-0">
-        <img src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/grand-cherokee/Gallery/desktop/2023-Grand-Cherokee-Gallery-01-Exterior-Desktop.jpg.image.1440.jpg" alt="Image of Vehicle for Offer" class="w-full">
-        <div class="text-white text-lg font-semibold absolute bottom-2 left-2">New 2023 Grand Cherokee</div>
+    <div class="flex flex-col md:flex-row mb-8 bg-white p-5 rounded-lg">
+      <div class="w-full md:w-2/3 relative md:mb-0">
+        <img
+          src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/wagoneer/wagoneer/gallery/exterior/2023-Wagoneer-Gallery-Exterior-Gallery-Red-Front-Desktop.jpg.image.1440.jpg"
+          alt="Image of Vehicle for Offer" class="w-full rounded-lg">
+        <div class="text-white text-lg font-semibold absolute bottom-2 left-2">New 2023 Wagoneer</div>
       </div>
-      <div class="w-full md:w-1/2 flex flex-col justify-center items-end p-8 rounded">
-        <div class="bg-white p-6 rounded shadow">
+      <div class="w-full md:w-1/3 flex flex-col justify-center items-center">
+        <div class="bg-gray-100 bg-opacity-50 p-12 shadow-lg rounded-lg">
           <div class="text-gray-900 text-lg">Get up to</div>
-          <div class="text-red-900 text-4xl font-bold">20% OFF MSRP</div>
-          <div class="text-gray-900 text-lg">on New 2023 Jeep Grand Cherokee Models</div>
-          <div class="flex justify-between mt-4">
-            <button class="bg-blue-500 text-white py-2 px-4 rounded">Shop Now</button>
-            <button class="bg-blue-500 text-white py-2 px-4 rounded">Claim Offer</button>
+          <div class="text-red-900 text-4xl font-bold">$9,000 OFF MSRP</div>
+          <div class="text-gray-900 text-lg">on New 2023 Wagoneer Models</div>
+          <div class="flex flex-col justify-between">
+            <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Shop Now</button>
+            <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Claim Offer</button>
           </div>
         </div>
       </div>
@@ -48,4 +61,5 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
+
 </html>

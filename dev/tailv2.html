@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      font-size: 16px;
+    }
+    #rag-auto button {
+      background-color: #043F77;
+    }
+  </style>
+</head>
+
+<body class="font-sans" id="rag-auto">
+  <div class="container mx-auto p-10 bg-gray-100">
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    function fetchOffers() {
+      const targetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjcfknXWqSF0jAiiOgTe7GW_uoGo74U7mpx_YIiGxMU7lPkCC6hTw_GaXKbOVaiJhSIkEuPJA-i0Lo/pub?gid=0&single=true&output=csv';
+      
+      fetch(targetUrl)
+        .then(response => response.text())
+        .then(csvData => {
+          const offers = csvData.split('\r\n').slice(2); // Remove the header row and empty row
+          const offersContainer = document.getElementById('rag-auto');
+          let counter = 0;
+          
+          offers.forEach(offer => {
+            const offerData = offer.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+            
+            // Skip offers without "Contains Offer" = TRUE
+            if (offerData.length < 10 || offerData[3].toLowerCase() !== 'true') return;
+            
+            const offerHtml = document.createElement('div');
+            offerHtml.className = `flex flex-col md:flex-${counter % 2 === 0 ? 'row-reverse' : 'row'} mb-8 bg-white p-5 rounded-lg`;
+            offerHtml.innerHTML = `
+              <div class="w-full md:w-2/3 relative md:mb-0">
+                <img src="${offerData[4].replace(/"/g, '')}" alt="${offerData[0].replace(/"/g, '')}" class="w-full rounded-lg">
+                <div class="text-white text-lg font-semibold absolute bottom-2 left-2">${offerData[0].replace(/"/g, '')}</div>
+              </div>
+              <div class="w-full md:w-1/3 flex flex-col justify-center items-center">
+                <div class="bg-gray-100 bg-opacity-50 p-12 shadow-lg rounded-lg">
+                  <div class="text-gray-900 text-lg">${offerData[1].replace(/"/g, '')}</div>
+                  <div class="text-red-900 text-4xl font-bold">${offerData[2].replace(/"/g, '')}</div>
+                  <div class="text-gray-900 text-lg">${offerData[1].replace(/"/g, '')}</div>
+                  <div class="flex flex-col justify-between">
+                    <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Shop Now</button>
+                    <button class="bg-blue-600 font-bold text-white mt-5 py-2 px-5 rounded w-full">Claim Offer</button>
+                  </div>
+                </div>
+              </div>
+            `;
+            offersContainer.appendChild(offerHtml);
+            counter++;
+          });
+        })
+        .catch(error => console.error('Error:', error)); // Log any errors that occur during the fetch operation
+    }
+    
+    fetchOffers();
+  </script>
+</body>
+
+</html>
