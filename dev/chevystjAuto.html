@@ -281,14 +281,14 @@
   <div class="bg-rag-test-custom">
     <h2 class="text-3xl pt-2 pb-2 p-5 font-bold tracking-tight text-white sm:text-4xl text-center">New Vehicle Offers &
       Incentives</h2>
-    <p class="text-center pb-2 mb-5 text-lg leading-8 text-white">Reed Jeep of Kansas City</p>
+    <p class="text-center pb-2 mb-5 text-lg leading-8 text-white">Reed Chevy of St. Joseph</p>
   </div>
   <div class="spacer"></div>
   <div id="offers-container" class=""></div>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
     function fetchOffers() {
-      const targetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjcfknXWqSF0jAiiOgTe7GW_uoGo74U7mpx_YIiGxMU7lPkCC6hTw_GaXKbOVaiJhSIkEuPJA-i0Lo/pub?gid=0&single=true&output=csv';
+      const targetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSAhF0g9qb8SXM_ANU568-x_EYtc8sVSI3Q9zVssWp7zDmHvi2WdyZMwO5GqNMOSCAMMYI3Zv9vJqRq/pub?gid=0&single=true&output=csv';
 
       fetch(targetUrl)
         .then(response => response.text())
@@ -329,7 +329,7 @@
                 </div> 
                 <div class="md:w-full flex flex-col justify-start items-center">
                   <div class="text-[#333] md:leading-normal leading-4 text-lg uppercase font-normal text-center mb-2 lg:${counter % 2 === 0 ? '-ml-6' : '-mr-6'}">${offerData[0].replace(/"/g, '')}</div>
-                  <div class="text-[#333] text-3xl lg:text-4xl font-bold text-center mb-2 lg:${counter % 2 === 0 ? '-ml-6' : '-mr-6'}">Get ${offerData[1].replace(/"/g, '')}</div>
+                  <div class="text-[#333] text-3xl lg:text-4xl font-bold text-center mb-2 lg:${counter % 2 === 0 ? '-ml-6' : '-mr-6'}">${offerData[1].replace(/"/g, '')}</div>
                   <div class="text-[#333] md:leading-normal leading-4 text-lg font-normal text-center mb-2 lg:${counter % 2 === 0 ? '-ml-6' : '-mr-6'}">Total Savings</div>
                   <a href="${offerData[5].replace(/"/g, '')}" class="bg-btn-rag font-bold text-white mt-5 py-2 px-5 rounded w-2/3 text-center mt-10 lg:${counter % 2 === 0 ? '-ml-6' : '-mr-6'}">Shop Now</a>
                 </div>
